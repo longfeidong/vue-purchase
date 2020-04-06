@@ -3,6 +3,8 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Header />
+    <Banner />
+    <Notice />
     <Footer />
   </div>
 </template>
@@ -12,12 +14,16 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import Header from '@/components/common/Header.vue'
 import Footer from '@/components/common/Footer.vue'
+import Banner from '@/components/home/Banner.vue'
+import Notice from '@/components/home/Notice.vue'
 
 export default {
   name: 'home',
   components: {
     Header,
-    Footer
+    Footer,
+    Banner,
+    Notice
   }
 }
 </script>
