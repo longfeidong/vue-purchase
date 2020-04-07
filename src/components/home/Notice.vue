@@ -3,10 +3,18 @@
         <div class="notice_width_top clear">
             <div class="notice fl">
                 <img class="notice_img" src="../../assets/imgs/gonggao.png">
-                <p class="notice_news" id="notice_news">
+                <!-- <p class="notice_news" id="notice_news">
                     <a href="/cgpt/resources/style/purchase/notice-details.jsp?id=1">
                         <span>标题1</span><span>2019-12-16</span>
                     </a>
+                </p> -->
+                <p class="notice_news" id="notice_news">
+                  <router-link tag="a" :to="'/cgpt/resources/style/purchase/notice-details/' + list.id">
+                    <span>{{ list.title }}</span><span>{{ list.time }}</span>
+                  </router-link>
+                  <!-- <a href="/cgpt/resources/style/purchase/notice-details.jsp?id=1">
+                      <span>{{ list.title }}</span><span>{{ list.time }}</span>
+                  </a> -->
                 </p>
             </div>
             <div class="irb_more_font"><a href="/cgpt/resources/style/purchase/notice-list.jsp" id="notice-more">更多<i></i></a></div>
@@ -16,7 +24,10 @@
 
 <script>
 export default {
-    name: 'Notice'
+  name: 'Notice',
+  props: {
+    list: Object
+  }
 }
 </script>
 
