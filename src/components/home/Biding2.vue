@@ -84,12 +84,65 @@
         </ul>
       </div>
     </div> -->
+    <template v-for="(items, keyVal) of list">
+      <div class="bid" v-if="keyVal === 'tender'" :key="items['id']">
+        <div class="bid-top clear">
+          <h2 class="fl">招标公告</h2>
+          <div class="bid-more fr">
+            <a href="javascript:;" id="tender-more">更多<i></i></a>
+          </div>
+        </div>
+        <div class="bid-info">
+          <div class="title-info clear">
+            <span class="fl opt1">类型</span>
+            <span class="fl opt2">项目编号</span>
+            <span class="fl opt3">项目名称</span>
+            <span class="fl opt4">公告时间</span>
+          </div>
+          <ul class="bid-list" id="tender">
+            <li v-for="item of items['info']" :key="item.id">
+              <router-link tag="a" :to="'/cgpt/resources/style/purchase/details/id/' + item['id']">
+                <span class="fl opt1">{{ item.type }}</span>
+                <span class="fl opt2">{{ item.number }}</span>
+                <span class="fl opt3">{{ item.proName }}</span>
+                <span class="fl opt4">{{ item.time }}</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bid" v-if="keyVal === 'bid'" :key="items['id']">
+        <div class="bid-top clear">
+          <h2 class="fl">中标公示</h2>
+          <div class="bid-more fr">
+            <a href="javascript:;" id="bid-more">更多<i></i></a>
+          </div>
+        </div>
+        <div class="bid-info">
+          <div class="title-info clear">
+            <span class="fl opt1">类型</span>
+            <span class="fl opt2">项目编号</span>
+            <span class="fl opt3">项目名称</span>
+            <span class="fl opt4">归档时间</span>
+          </div>
+          <ul class="bid-list" id="bid">
+            <li v-for="item of items['info']" :key="item.id">
+              <router-link tag="a" :to="'/cgpt/resources/style/purchase/details2/id/' + items['id']">
+                <span class="fl opt1">{{ item.type }}</span>
+                <span class="fl opt2">{{ item.number }}</span>
+                <span class="fl opt3">{{ item.proName }}</span>
+                <span class="fl opt4">{{ item.time }}</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </template>
     <div class="bid">
       <div class="bid-top clear">
         <h2 class="fl">招标公告</h2>
         <div class="bid-more fr">
-          <!-- <a href="javascript:;" id="tender-more">更多<i></i></a> -->
-          <router-link tag="a" :to="'/cgpt/resources/style/purchase/list/id/' + list['tender']['id']">更多</router-link>
+          <a href="javascript:;" id="tender-more">更多<i></i></a>
         </div>
       </div>
       <div class="bid-info">
@@ -131,8 +184,7 @@
       <div class="bid-top clear">
         <h2 class="fl">中标公示</h2>
         <div class="bid-more fr">
-          <!-- <a href="javascript:;" id="bid-more">更多<i></i></a> -->
-          <router-link tag="a" :to="'/cgpt/resources/style/purchase/list/id/' + list['bid']['id']">更多</router-link>
+          <a href="javascript:;" id="bid-more">更多<i></i></a>
         </div>
       </div>
       <div class="bid-info">

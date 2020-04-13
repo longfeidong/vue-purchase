@@ -4,7 +4,9 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Header />
     <Banner />
-    <Notice :list="noticeData" />
+    <Notice :list="noticeInfo" />
+    <Biding :list="bidingInfo"/>
+    <!-- <Biding2 :list="bidingInfo"/> -->
     <Footer />
   </div>
 </template>
@@ -16,6 +18,8 @@ import Header from '@/components/common/Header.vue'
 import Footer from '@/components/common/Footer.vue'
 import Banner from '@/components/home/Banner.vue'
 import Notice from '@/components/home/Notice.vue'
+import Biding from '@/components/home/Biding.vue'
+// import Biding2 from '@/components/home/Biding2.vue'
 // 引入axios
 import axios from 'axios'
 
@@ -25,11 +29,17 @@ export default {
     Header,
     Footer,
     Banner,
-    Notice
+    Notice,
+    Biding
+    // Biding2
   },
   data () {
     return {
-      noticeData: {}
+      noticeInfo: {},
+      bidingInfo: {
+        tender: {},
+        bid: {}
+      }
     }
   },
   methods: {
@@ -42,8 +52,10 @@ export default {
       console.log(res)
       if (res.status === 200 && res.data) {
         const data = res.data
-        this.noticeData = data.notice
-        console.log(this.noticeData)
+        this.noticeInfo = data.notice
+        console.log(this.noticeInfo)
+        this.bidingInfo['tender'] = data.tender
+        this.bidingInfo['bid'] = data.bid
       }
     }
   },
