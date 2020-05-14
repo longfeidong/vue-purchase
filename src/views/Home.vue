@@ -44,7 +44,8 @@ export default {
   },
   methods: {
     getHomeData () {
-      axios.get('/api/index.json')
+      // /api/index.json
+      axios.get('/api/queryZbgllist1')
         .then(this.getHomeDataSuc)
     },
     getHomeDataSuc (res) {

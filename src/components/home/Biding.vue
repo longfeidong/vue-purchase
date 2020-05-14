@@ -89,7 +89,7 @@
         <h2 class="fl">招标公告</h2>
         <div class="bid-more fr">
           <!-- <a href="javascript:;" id="tender-more">更多<i></i></a> -->
-          <router-link tag="a" :to="'/cgpt/resources/style/purchase/list/id/' + list['tender']['id']">更多</router-link>
+          <router-link tag="a" :to="'/blist/id/' + list['tender']['id']">更多</router-link>
         </div>
       </div>
       <div class="bid-info">
@@ -103,7 +103,7 @@
           <li v-for="items of list['tender']['info']" :key="items.id">
             <router-link tag="a" :to="'/cgpt/resources/style/purchase/details/id/' + items['id']">
               <span class="fl opt1">{{ items.type }}</span>
-              <span class="fl opt2">{{ items.number }}</span>
+              <span class="fl opt2">{{ items.numbers }}</span>
               <span class="fl opt3">{{ items.proName }}</span>
               <span class="fl opt4">{{ items.time }}</span>
             </router-link>
@@ -132,7 +132,8 @@
         <h2 class="fl">中标公示</h2>
         <div class="bid-more fr">
           <!-- <a href="javascript:;" id="bid-more">更多<i></i></a> -->
-          <router-link tag="a" :to="'/cgpt/resources/style/purchase/list/id/' + list['bid']['id']">更多</router-link>
+          <!-- /cgpt/resources/style/purchase -->
+          <router-link tag="a" :to="'/blist/id/' + list['bid']['id']">更多</router-link>
         </div>
       </div>
       <div class="bid-info">
@@ -146,7 +147,7 @@
           <li v-for="items of list['bid']['info']" :key="items.id">
             <router-link tag="a" :to="'/cgpt/resources/style/purchase/details2/id/' + items['id']">
               <span class="fl opt1">{{ items.type }}</span>
-              <span class="fl opt2">{{ items.number }}</span>
+              <span class="fl opt2">{{ items.numbers }}</span>
               <span class="fl opt3">{{ items.proName }}</span>
               <span class="fl opt4">{{ items.time }}</span>
             </router-link>
