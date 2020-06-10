@@ -45,16 +45,31 @@ export default {
   methods: {
     getHomeData () {
       // /api/index.json
-      axios.get('/api/queryZbgllist1')
-        .then(this.getHomeDataSuc)
+      // const url = 'http://localhost:8080/cgpt/zbgl'
+      // axios.get(url + '/queryZbgllist1')
+      //   .then(this.getHomeDataSuc)
+
+      // axios.get('/api/queryZbgllist1')
+      //   .then(this.getHomeDataSuc)
+
+      if (process.env.NODE_ENV === 'production') {
+        // console.log('生产环境')
+        const url = 'http://140.249.205.136:8082/cgpt/zbgl'
+        axios.get(url + '/queryZbgllist1')
+          .then(this.getHomeDataSuc)
+      } else {
+        // console.log('开发环境')
+        axios.get('/api/queryZbgllist1')
+          .then(this.getHomeDataSuc)
+      }
     },
     getHomeDataSuc (res) {
       // res = res.data
-      console.log(res)
+      // console.log(res)
       if (res.status === 200 && res.data) {
         const data = res.data
         this.noticeInfo = data.notice
-        console.log(this.noticeInfo)
+        // console.log(this.noticeInfo)
         this.bidingInfo['tender'] = data.tender
         this.bidingInfo['bid'] = data.bid
       }

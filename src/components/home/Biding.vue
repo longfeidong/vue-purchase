@@ -101,7 +101,7 @@
         </div>
         <ul class="bid-list" id="tender">
           <li v-for="items of list['tender']['info']" :key="items.id">
-            <router-link tag="a" :to="'/cgpt/resources/style/purchase/details/id/' + items['id']">
+            <router-link tag="a" :to="'/details/id/' + items['id']">
               <span class="fl opt1">{{ items.type }}</span>
               <span class="fl opt2">{{ items.numbers }}</span>
               <span class="fl opt3">{{ items.proName }}</span>
@@ -145,7 +145,7 @@
         </div>
         <ul class="bid-list" id="bid">
           <li v-for="items of list['bid']['info']" :key="items.id">
-            <router-link tag="a" :to="'/cgpt/resources/style/purchase/details2/id/' + items['id']">
+            <router-link tag="a" :to="'/details/id/' + items['id']">
               <span class="fl opt1">{{ items.type }}</span>
               <span class="fl opt2">{{ items.numbers }}</span>
               <span class="fl opt3">{{ items.proName }}</span>

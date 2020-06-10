@@ -85,7 +85,7 @@ export default {
       // console.log(num)
       this.totalSize = num
       this.totalPage = Math.ceil(this.totalSize / this.pageSize)
-      console.log(this.totalPage)
+      // console.log(this.totalPage)
       // 分页
       $('#page').paging({
         pageNo: 1,
@@ -113,7 +113,7 @@ export default {
   },
   watch: {
     list: function (newVal, oldVal) {
-      console.log(this.list)
+      // console.log(this.list)
       this.listData = newVal
       newVal && this.pagings(this.listData)
       // if (newVal) {
@@ -123,11 +123,11 @@ export default {
     }
   },
   created () {
-    console.log('created:' + this.list)
+    // console.log('created:' + this.list)
     // this.listData = this.list
   },
   mounted () {
-    console.log('mounted:' + this.list)
+    // console.log('mounted:' + this.list)
     // this.initListData(this.num)
     // console.log(this.listData)
     this.pagings(this.list)

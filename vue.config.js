@@ -1,7 +1,8 @@
 var webpack = require('webpack')
 module.exports = {
+    publicPath: process.env.NODE_ENV === "production" ? "/caigou/" : "/",
     devServer: {
-      port: 8082,
+      port: 8080,
       proxy: {
         '/api': {
             target: 'http://140.249.205.136:8082/cgpt/',
@@ -9,7 +10,21 @@ module.exports = {
             pathRewrite: {
                 '^/api': '/zbgl'
             }
+        },
+        '/api/isLogin': {
+            target: 'http://localhost:8080/cgpt/',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api': '/'
+            }
         }
+        // '/api/ueditor': {
+        //   target: 'http://140.249.205.136:8082/cgpt/',
+        //   changeOrigin: true,
+        //   pathRewrite: {
+        //       '^/api/ueditor': '/ueditor/jsp/controller.jsp'
+        //   }
+        // }
       }
     },
     configureWebpack: {
@@ -19,7 +34,7 @@ module.exports = {
           $: "jquery"
         })
        ]
-    }
+    },
     // devServer: {
     //   port: 8081,
     //   proxy: {
@@ -32,11 +47,16 @@ module.exports = {
     //     }
     //   }
     // }
-    // publicPath: '/project',
+    // publicPath: '/caigou/',
     // devServer: {
+    //   port: 8080,
     //   proxy: {
     //     '/api': {
-    //         target: 'http://localhost:8080'
+    //         target: 'http://localhost:8080/cgpt',
+    //         changeOrigin: true,
+    //         pathRewrite: {
+    //           '^/api': '/zbgl'
+    //         }
     //     }
     //   }
     // }

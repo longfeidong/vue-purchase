@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import NotFoundComponent from '../views/NotFoundComponent.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '*',
+    component: NotFoundComponent
+    // component: () => import(/* webpackChunkName: "about" */ '../views/NotFoundComponent.vue')
+  },
   {
     path: '/',
     name: 'home',
@@ -25,6 +31,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Blist.vue')
+  },
+  {
+    path: '/details/id/:id',
+    name: 'details',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Details.vue')
   }
 ]
 
