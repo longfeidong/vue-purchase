@@ -40,17 +40,24 @@ export default {
       //   }
       // }).then(this.getListInfoSuc)
 
+      var queryStr = ''
+      if (this.$route.params.id !== '3') {
+        queryStr = 'queryZbgllists'
+      } else {
+        queryStr = 'queryTzList'
+      }
+
       if (process.env.NODE_ENV === 'production') {
         // console.log('生产环境')
         const url = 'http://140.249.205.136:8082/cgpt/zbgl'
-        axios.get(url + '/queryZbgllists', {
+        axios.get(url + `/${queryStr}`, {
           params: {
             'zbzt': this.$route.params.id
           }
         }).then(this.getListInfoSuc)
       } else {
         // console.log('开发环境')
-        axios.get('/api/queryZbgllists', {
+        axios.get(`/api/${queryStr}`, {
           params: {
             'zbzt': this.$route.params.id
           }

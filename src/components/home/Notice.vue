@@ -19,7 +19,7 @@
             </div>
             <div class="irb_more_font">
               <!-- <a href="/cgpt/resources/style/purchase/notice-list.jsp" id="notice-more">更多<i></i></a> -->
-              <router-link tag="a" :to="'/cgpt/resources/style/purchase/notice-list.jsp'">更多<i></i></router-link>
+              <router-link tag="a" :to="'/blist/id/3'">更多<i></i></router-link>
             </div>
         </div>
     </div>

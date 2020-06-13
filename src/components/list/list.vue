@@ -4,7 +4,7 @@
       <div class="bid-top clear">
         <h2 class="fl" id="bid">{{ detailsInfo.titleName }}</h2>
       </div>
-      <div class="bid-info">
+      <div class="bid-info" v-if="this.$route.params.id !== '3'">
         <div class="title-info clear">
           <span class="fl opt1">类型</span>
           <span class="fl opt2">项目编号</span>
@@ -44,6 +44,21 @@
               <span class="fl opt4">2019-10-11 09:03:09</span>
             </a>
           </li> -->
+        </ul>
+        <div id="page" class="page_div"></div>
+      </div>
+      <div class="bid-info" v-else>
+        <div class="title-info clear">
+          <span class="fl opt3">公告名称</span>
+          <span class="fr opt4">公告时间</span>
+        </div>
+        <ul class="bid-list">
+          <li v-for="item of list[num - 1]" :key="item.id">
+            <a href="#">
+              <span class="fl opt3">{{ item.title }}</span>
+              <span class="fr opt4">{{ item.time }}</span>
+            </a>
+          </li>
         </ul>
         <div id="page" class="page_div"></div>
       </div>
@@ -104,9 +119,12 @@ export default {
       if (this.$route.params.id === '1') {
         detailsInfo.titleName = '招标公告'
         detailsInfo.detailsLink = 'details'
-      } else {
+      } else if (this.$route.params.id === '2') {
         detailsInfo.titleName = '中标公式'
         detailsInfo.detailsLink = 'details2'
+      } else {
+        detailsInfo.titleName = '通知公告'
+        detailsInfo.detailsLink = 'details3'
       }
       return detailsInfo
     }
