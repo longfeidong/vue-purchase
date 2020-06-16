@@ -9,7 +9,7 @@
                     </a>
                 </p> -->
                 <p class="notice_news" id="notice_news">
-                  <router-link tag="a" :to="'/cgpt/resources/style/purchase/notice-details/' + list.id">
+                  <router-link tag="a" :to="'/details/type/' + type + '/id/' + list.id">
                     <span>{{ list.title }}</span><span>{{ list.time }}</span>
                   </router-link>
                   <!-- <a href="/cgpt/resources/style/purchase/notice-details.jsp?id=1">
@@ -30,6 +30,11 @@ export default {
   name: 'Notice',
   props: {
     list: Object
+  },
+  data () {
+    return {
+      type: 'notice'
+    }
   }
 }
 </script>

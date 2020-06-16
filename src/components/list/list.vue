@@ -54,10 +54,10 @@
         </div>
         <ul class="bid-list">
           <li v-for="item of list[num - 1]" :key="item.id">
-            <a href="#">
+            <router-link tag="a" :to="'/details/id/' + item['id']">
               <span class="fl opt3">{{ item.title }}</span>
               <span class="fr opt4">{{ item.time }}</span>
-            </a>
+            </router-link>
           </li>
         </ul>
         <div id="page" class="page_div"></div>
