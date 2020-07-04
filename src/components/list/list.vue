@@ -13,7 +13,7 @@
         </div>
         <ul class="bid-list">
           <li v-for="item of list[num - 1]" :key="item.id">
-            <router-link tag="a" :to="'/cgpt/resources/style/purchase/'+ detailsInfo.detailsLink +'/id/' + item['id']">
+            <router-link tag="a" :to="detailsInfo.detailsLink +'/id/' + item['id']">
               <span class="fl opt1">{{ item.type }}</span>
               <span class="fl opt2">{{ item.numbers }}</span>
               <span class="fl opt3">{{ item.proName }}</span>
@@ -54,7 +54,7 @@
         </div>
         <ul class="bid-list">
           <li v-for="item of list[num - 1]" :key="item.id">
-            <router-link tag="a" :to="'/details/id/' + item['id']">
+            <router-link tag="a" :to="detailsInfo.detailsLink + '/id/' + item['id']">
               <span class="fl opt3">{{ item.title }}</span>
               <span class="fr opt4">{{ item.time }}</span>
             </router-link>
@@ -115,16 +115,18 @@ export default {
   },
   computed: {
     detailsInfo: function () {
-      var detailsInfo = {}
+      var detailsInfo = {
+        detailsLink: '/details'
+      }
       if (this.$route.params.id === '1') {
         detailsInfo.titleName = '招标公告'
-        detailsInfo.detailsLink = 'details'
+        // detailsInfo.detailsLink = 'details'
       } else if (this.$route.params.id === '2') {
         detailsInfo.titleName = '中标公式'
-        detailsInfo.detailsLink = 'details2'
+        // detailsInfo.detailsLink = 'details2'
       } else {
         detailsInfo.titleName = '通知公告'
-        detailsInfo.detailsLink = 'details3'
+        detailsInfo.detailsLink = '/details/type/notice'
       }
       return detailsInfo
     }

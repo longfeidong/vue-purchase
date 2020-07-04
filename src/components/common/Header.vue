@@ -8,16 +8,16 @@
         </div>
         <ul class="nav fl">
             <li>
-                <a href="#">首页</a>
+                <a href="./">首页</a>
             </li>
             <li>
-                <a href="#">通知公告</a>
+                <a href="/blist/id/3">通知公告</a>
             </li>
             <li>
-                <a href="#">招标公告</a>
+                <a href="/blist/id/1">招标公告</a>
             </li>
             <li>
-                <a href="#">中标公示</a>
+                <a href="/blist/id/2">中标公示</a>
             </li>
         </ul>
         <div class="logreg fr" id="logreg">
